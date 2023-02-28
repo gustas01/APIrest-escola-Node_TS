@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes';
+
+dotenv.config();
 
 class App {
   public app;
@@ -20,4 +23,4 @@ class App {
   }
 }
 
-new App().app.listen(3001, () => console.log(`Backend ouvindo na porta ${4000} http://localhost:3001`));
+new App().app.listen(process.env.APP_PORT, () => console.log(`Backend ouvindo na porta ${process.env.APP_PORT} ${process.env.APP_URL}`));
