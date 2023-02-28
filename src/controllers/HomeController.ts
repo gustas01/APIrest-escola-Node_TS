@@ -4,8 +4,8 @@ import Student from '../models/Student';
 class HomeController {
   async index(req: Request, res: Response){
     const newStudent = await Student.create({
-      firstName: 'Gustavo',
-      lastName: 'Lima',
+      first_name: 'Gustavo',
+      last_name: 'Lima',
       age: 28,
       email: 'gus@email.com',
       height: 1.7,

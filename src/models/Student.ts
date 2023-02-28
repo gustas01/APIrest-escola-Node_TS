@@ -6,8 +6,8 @@ const databaseConfig = require('../config/database');
 const connection = new Sequelize(databaseConfig);
 
 export default class Student extends Model {
-  declare firstName: string;
-  declare lastName: string;
+  declare first_name: string;
+  declare last_name: string;
   declare email: string;
   declare age: number;
   declare weight: number;
@@ -15,8 +15,8 @@ export default class Student extends Model {
 }
 
 Student.init({
-  firstName: DataTypes.STRING,
-  lastName: DataTypes.STRING,
+  first_name: DataTypes.STRING,
+  last_name: DataTypes.STRING,
   email: DataTypes.STRING,
   age: DataTypes.INTEGER,
   weight: DataTypes.FLOAT,
