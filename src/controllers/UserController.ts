@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import { IErrorDB } from '../interfaces/IErrorDB';
 import { IUser } from '../interfaces/IUser';
@@ -74,10 +75,12 @@ class UserController {
 
       if(!user) return res.status(400).json({errors: ['Usuário não encontrado']});
 
-      const deletedUser = await  User.destroy({where: {id: req.params.id}});
+      await user.destroy();
+      console.log(user);
 
-      return res.json('Usuário deletado com sucesso!');
+      const { id, name, email } = user.dataValues;
 
+      return res.json({ id, name, email });
     }catch(e: any){
       res.status(400).json({errors: e.errors.map((err: IErrorDB) => err.message)});
     }
