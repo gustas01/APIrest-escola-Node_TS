@@ -37,7 +37,7 @@ class UserController {
 
   async read(req: Request, res: Response){
     try{
-      const user = await User.findByPk(req.params.id) as unknown as IUser;
+      const user = await User.findByPk(req.body.payloadToken.id) as unknown as IUser;
 
       if(!user) return res.status(400).json({errors: ['Usuário não encontrado']});
 
@@ -52,11 +52,11 @@ class UserController {
 
   async update(req: Request, res: Response){
     try{
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.body.payloadToken.id);
 
       if(!user) return res.status(400).json({errors: ['Usuário não encontrado']});
 
-      // const updatedUser = await User.update(req.body, { where: { id: req.params.id }});
+      // const updatedUser = await User.update(req.body, { where: { id: req.body.payloadToken.id }});
       const updatedUser = await user.update(req.body) as unknown as IUser;
 
       const { id, name, email } = updatedUser;
@@ -71,7 +71,7 @@ class UserController {
 
   async delete(req: Request, res: Response){
     try{
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.body.payloadToken.id);
 
       if(!user) return res.status(400).json({errors: ['Usuário não encontrado']});
 
