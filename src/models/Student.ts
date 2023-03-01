@@ -1,4 +1,5 @@
 import { DataTypes, Model, Sequelize } from 'sequelize';
+import Photo from './Photo';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const databaseConfig = require('../config/database');
@@ -77,3 +78,6 @@ Student.init({
   },
 
 }, { sequelize: connection, modelName: 'student' });
+
+
+Student.hasMany(Photo, {foreignKey: 'student_id'});
