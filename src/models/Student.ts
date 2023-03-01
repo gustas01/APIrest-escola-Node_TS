@@ -15,11 +15,65 @@ export default class Student extends Model {
 }
 
 Student.init({
-  first_name: DataTypes.STRING,
-  last_name: DataTypes.STRING,
-  email: DataTypes.STRING,
-  age: DataTypes.INTEGER,
-  weight: DataTypes.FLOAT,
-  height: DataTypes.FLOAT,
+  first_name: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    validate: {
+      len: {
+        args: [3, 255],
+        msg: 'Nome precisa ter entre 3 e 255 caracteres',
+      },
+    },
+  },
+  last_name: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    validate: {
+      len: {
+        args: [3, 255],
+        msg: 'Sobrenome precisa ter entre 3 e 255 caracteres',
+      },
+    },
+  },
+  email: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    unique: {
+      msg: 'E-mail já existe',
+      name: '',
+    },
+    validate: {
+      isEmail: {
+        msg: 'E-mail inválido',
+      },
+    },
+  },
+  age: {
+    type: DataTypes.INTEGER,
+    defaultValue: '',
+    validate: {
+      isInt: {
+        msg: 'Idade precisa ser um número inteiro',
+      },
+    },
+  },
+  weight: {
+    type: DataTypes.FLOAT,
+    defaultValue: '',
+    validate: {
+      isFloat: {
+        msg: 'Peso precisa ser um número',
+      },
+    },
+  },
+  height: {
+    type: DataTypes.FLOAT,
+    defaultValue: '',
+    validate: {
+      isFloat: {
+        msg: 'Altura precisa ser um número',
+      },
+    },
+  },
 
 }, { sequelize: connection, modelName: 'student' });

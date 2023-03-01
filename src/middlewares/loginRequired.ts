@@ -14,7 +14,6 @@ export default async(req: Request, res: Response, next: NextFunction) => {
 
   try{
     const dados = jwt.verify(token, process.env.TOKEN_SECRET || '') as {email: string, id: number};
-    console.log(dados);
 
     const user = await User.findOne({where: {email: dados.email}});
 
@@ -27,8 +26,6 @@ export default async(req: Request, res: Response, next: NextFunction) => {
     req.body.payloadToken = dados;
     return next();
   }catch(e){
-    console.log(e);
-
     return res.status(401).json({
       errors: ['Token expirado ou inválido']
     });
