@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import { IErrorDB } from '../interfaces/IErrorDB';
 import Student from '../models/Student';
