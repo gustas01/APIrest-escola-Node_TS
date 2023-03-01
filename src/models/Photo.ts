@@ -31,6 +31,12 @@ Photo.init({
       },
     },
   },
+  url: {
+    type: DataTypes.VIRTUAL,
+    get(){
+      return `http://localhost:3001/images/${this.getDataValue('filename')}`;
+    }
+  }
 }, { sequelize: connection, modelName: 'photo' });
 
 Photo.belongsTo(User, {
