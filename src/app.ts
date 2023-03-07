@@ -14,6 +14,7 @@ dotenv.config();
 
 const whitelist = [
   'http://localhost:3000',
+  'http://localhost:3001',
 ];
 
 const corsOptions: cors.CorsOptions = {
@@ -38,9 +39,9 @@ class App {
   middlewares(){
     this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, 'uploads')));
+    this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
 
-    this.app.use(cors(corsOptions));
+    this.app.use(cors());
     this.app.use(helmet());
   }
 
