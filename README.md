@@ -18,6 +18,7 @@ E para manipular esses dados, é necessário estar logado no sistema com algum u
 
 O procedimento de autenticação de usuários é feito usando um JWT gerado quando o usuário é criado usando a biblioteca `jsonwebtoken`. <br>
 Todos os passwords sofrem um hash para serem salvos no banco de dados, por motivos de segunraça, usando a biblioteca `bcryptjs`.
+Para a manipulação das imagens dos estudantes, como receber o upload, definir pasta de destino e nome, foi usada a biblioteca chamada `multer`.
 
 # Instruções para a execução do projeto. 
 OBS: O NodeJS e o PostgresSQL devem estar instalados no ambiente onde será executado o projeto.
