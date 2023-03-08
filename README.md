@@ -1,7 +1,7 @@
 # API_REST_CURSOJS
 
 <h2>Tecnologias usadas</h2>
-NodeJS, ExpressJS, PostgreSQL, SequelizeORM, bcryptjs, jsonwebtoken.
+NodeJS, ExpressJS, PostgreSQL, SequelizeORM, bcryptjs, jsonwebtoken, multer.
 <hr>
 
 <h2>Sobre o projeto</h2>
