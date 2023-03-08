@@ -84,7 +84,7 @@ http://localhost:3001/students/:id
 
 <h2>Rotas para usuário</h2>
 OBS: Para as rotas de usuário não é necessário enviar o ID, pois o usuário só poderá executar ações em seus próprios dados.
-A rota para todos os métodos de `npm run dev` é a mesma: `http://localhost:3001/users/`, porém mudará apenas o método http a ser usado. Nos métodos de `UPDATE` e `CREATE`é necessário passar um corpo para a requisição. Que serão os seguintes: <br> <br>
+A rota para todos os métodos de `users` é a mesma: `http://localhost:3001/users/`, porém mudará apenas o método http a ser usado. Nos métodos de `UPDATE` e `CREATE`é necessário passar um corpo para a requisição. Que serão os seguintes: <br> <br>
 
 Para o método `CREATE`
 ```
