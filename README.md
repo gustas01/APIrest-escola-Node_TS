@@ -9,6 +9,8 @@ Uma API Rest onde se manipula dados de alunos de uma escola.  <br>
 
 ![student](https://user-images.githubusercontent.com/50846424/223618953-500b720e-7db4-4738-a97d-dfc44e45095c.png)
 
+Esses estudantes possuem fotos, que são salvas no disco e referenciadas no banco da seguinte forma: <br>
+![photo](https://user-images.githubusercontent.com/50846424/223622680-17677b91-218d-4019-9d0e-101e18cfad1e.png)
 
 E para manipular esses dados, é necessário estar logado no sistema com algum usuário, cujos dados são: <br>
 ![user](https://user-images.githubusercontent.com/50846424/223619033-07616521-ef83-400d-af15-1f7bdfdc10c3.png)
