@@ -51,11 +51,12 @@ User.init({
     }
   },
 
-}, { sequelize: connection, modelName: 'user' });
+}, { sequelize: connection, modelName: 'user',
+  hooks: {
+    beforeSave: async (user) => {
+      if(user.dataValues.password){
+        user.password_hash = await bcrypt.hash(user.dataValues.password, 8);
+      }
+    }
+  }, });
 
-
-User.addHook('beforeSave', async (user) => {
-  if(user.dataValues.password){
-    user.dataValues.password_hash = await bcrypt.hash(user.dataValues.password, 8);
-  }
-});

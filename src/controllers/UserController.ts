@@ -25,7 +25,6 @@ class UserController {
 
 
       const newUser = await User.create(req.body) as unknown as IUser;
-      console.log(newUser);
 
       const {id, name, email} = newUser;
       res.json({id, name, email});
@@ -52,11 +51,16 @@ class UserController {
 
   async update(req: Request, res: Response){
     try{
+
+      const { password } = req.body;
+
+      if (!((/[A-Z]/).test(password) && ((/[a-z]/).test(password))))
+        return res.status(400).json({errors: ['A senha deve ter pelo menos 1 letra maiúscula e 1 minúscula']});
+
       const user = await User.findByPk(req.body.payloadToken.id);
 
       if(!user) return res.status(400).json({errors: ['Usuário não encontrado']});
 
-      // const updatedUser = await User.update(req.body, { where: { id: req.body.payloadToken.id }});
       const updatedUser = await user.update(req.body) as unknown as IUser;
 
       const { id, name, email } = updatedUser;
